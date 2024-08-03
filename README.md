@@ -24,8 +24,8 @@ This project demonstrates how to use Azure AI Text-to-Speech (TTS) to read Reddi
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/wirickm/azure-tts-aita-reader.git
-    cd azure-tts-aita-reader
+    git clone https://github.com/wirickm/Azure_AI_Speech.git
+    cd Azure_AI_Speech
     ```
 
 2. Install the required Python packages:
