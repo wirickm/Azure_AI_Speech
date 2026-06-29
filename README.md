@@ -44,7 +44,12 @@ This project demonstrates how to use Azure AI Text-to-Speech (TTS) to read Reddi
 
 ## Usage
 
-Run the script to read the text file using Azure Text-to-Speech:
+Open and run the notebook to read the text file using Azure Text-to-Speech:
 
-```sh
-python text_to_speech.py
+1. Start Jupyter:
+
+    ```sh
+    jupyter notebook
+    ```
+
+2. Open `Azure AITA Text-To-Speech.ipynb` in the Jupyter interface and run all cells.
