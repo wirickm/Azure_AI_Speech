@@ -34,7 +34,7 @@ This project demonstrates how to use Azure AI Text-to-Speech (TTS) to read Reddi
     pip install -r requirements.txt
     ```
 
-3. Create a `.env` file in the root directory of the project and add your Azure Speech API key, region, and the file path to the text file you want to read:
+3. Fill in `env.env` (or create a `.env` file) in the root directory of the project with your Azure Speech API key, region, and the file path to the text file you want to read:
 
     ```env
     AZURE_SPEECH_KEY=your_azure_speech_api_key
@@ -44,12 +44,35 @@ This project demonstrates how to use Azure AI Text-to-Speech (TTS) to read Reddi
 
 ## Usage
 
-Open and run the notebook to read the text file using Azure Text-to-Speech:
+Read a story and save it as an MP3:
 
-1. Start Jupyter:
+```sh
+python aita_tts.py samples/example_story.txt -o story.mp3
+```
 
-    ```sh
-    jupyter notebook
-    ```
+Play it through your default speaker instead (no `-o`):
 
-2. Open `Azure AITA Text-To-Speech.ipynb` in the Jupyter interface and run all cells.
+```sh
+python aita_tts.py samples/example_story.txt
+```
+
+Pick a different neural voice with `--voice` (or set `AZURE_SPEECH_VOICE`); the default is `en-US-KaiNeural`:
+
+```sh
+python aita_tts.py samples/example_story.txt --voice en-US-JennyNeural -o story.mp3
+```
+
+If you leave out the file path, the script uses `FILE_PATH` from `env.env` or `.env`. Output files ending in `.wav` are written as WAV.
+
+### Notebook
+
+Prefer Jupyter? Start `jupyter notebook`, open `Azure AITA Text-To-Speech.ipynb`, and run all cells.
+
+## Running Tests
+
+The tests run offline with a faked Speech SDK, so no Azure key is needed:
+
+```sh
+pip install -r requirements.txt -r requirements-dev.txt
+pytest
+```
