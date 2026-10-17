@@ -86,6 +86,7 @@ def test_cli_missing_env_exits_2(fake_sdk, clean_env):
     with pytest.raises(SystemExit) as exc:
         aita_tts.main([str(story)])
     assert exc.value.code == 2
+    assert "text" not in fake_sdk
 
 
 def test_cli_uses_file_path_fallback(fake_sdk, clean_env, monkeypatch):

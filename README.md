@@ -34,7 +34,11 @@ This project demonstrates how to use Azure AI Text-to-Speech (TTS) to read Reddi
     pip install -r requirements.txt
     ```
 
-3. Fill in `env.env` (or create a `.env` file) in the root directory of the project with your Azure Speech API key, region, and the file path to the text file you want to read:
+3. Copy `env.env` to `.env` (which is git-ignored) and put your real Azure Speech API key, region, and the file path to the text file you want to read in `.env`. `env.env` is a placeholder template tracked in git, so never put real secrets in it:
+
+    ```sh
+    cp env.env .env
+    ```
 
     ```env
     AZURE_SPEECH_KEY=your_azure_speech_api_key
@@ -62,7 +66,7 @@ Pick a different neural voice with `--voice` (or set `AZURE_SPEECH_VOICE`); the 
 python aita_tts.py samples/example_story.txt --voice en-US-JennyNeural -o story.mp3
 ```
 
-If you leave out the file path, the script uses `FILE_PATH` from `env.env` or `.env`. Output files ending in `.wav` are written as WAV.
+If you leave out the file path, the script uses `FILE_PATH` from `.env` (or the `env.env` template). Output files ending in `.wav` are written as WAV.
 
 ### Notebook
 
