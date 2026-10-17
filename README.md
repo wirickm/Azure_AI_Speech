@@ -66,7 +66,7 @@ Pick a different neural voice with `--voice` (or set `AZURE_SPEECH_VOICE`); the 
 python aita_tts.py samples/example_story.txt --voice en-US-JennyNeural -o story.mp3
 ```
 
-If you leave out the file path, the script uses `FILE_PATH` from `.env` (or the `env.env` template). Output files ending in `.wav` are written as WAV.
+If you leave out the file path, the script uses `FILE_PATH` from `.env`. Output files ending in `.wav` are written as WAV.
 
 ### Notebook
 

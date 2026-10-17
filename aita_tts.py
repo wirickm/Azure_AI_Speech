@@ -42,7 +42,6 @@ def synthesize(text, key, region, voice=DEFAULT_VOICE, output=None):
 
 
 def main(argv=None):
-    load_dotenv("env.env")
     load_dotenv()
 
     parser = argparse.ArgumentParser(
@@ -59,7 +58,7 @@ def main(argv=None):
     key = os.getenv("AZURE_SPEECH_KEY")
     region = os.getenv("AZURE_SERVICE_REGION")
     if not key or not region:
-        parser.error("AZURE_SPEECH_KEY and AZURE_SERVICE_REGION must be set (env.env or .env)")
+        parser.error("AZURE_SPEECH_KEY and AZURE_SERVICE_REGION must be set (.env)")
     if not args.input:
         parser.error("no input file given (pass a path or set FILE_PATH)")
 

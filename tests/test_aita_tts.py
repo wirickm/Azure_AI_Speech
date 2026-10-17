@@ -89,6 +89,18 @@ def test_cli_missing_env_exits_2(fake_sdk, clean_env):
     assert "text" not in fake_sdk
 
 
+def test_cli_ignores_env_env_template(fake_sdk, clean_env):
+    (clean_env / "env.env").write_text(
+        "AZURE_SPEECH_KEY=your_azure_speech_key_here\n"
+        "AZURE_SERVICE_REGION=your_service_region_here\n")
+    story = clean_env / "story.txt"
+    story.write_text("hi")
+    with pytest.raises(SystemExit) as exc:
+        aita_tts.main([str(story)])
+    assert exc.value.code == 2
+    assert "text" not in fake_sdk
+
+
 def test_cli_uses_file_path_fallback(fake_sdk, clean_env, monkeypatch):
     story = clean_env / "story.txt"
     story.write_text("Once upon a time.")
